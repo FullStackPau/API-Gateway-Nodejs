@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  publicgateway:
+    build:
+      context: ./publicgateway
+      dockerfile: Dockerfile
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./publicgateway:/app
+    depends_on:
+      - inventoryservice
+      - clientservice
+
+  inventoryservice:
+    build:
+      context: ./inventoryservice
+      dockerfile: Dockerfile
+    volumes:
+      - ./inventoryservice:/app
+    depends_on:
+      - mongo
+
+  clientservice:
+    build:
+      context: ./clientservice
+      dockerfile: Dockerfile
+    volumes:
+      - ./clientservice:/app
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./data/mongo:/data/db
+    ports:
+      - "27017:27017"
