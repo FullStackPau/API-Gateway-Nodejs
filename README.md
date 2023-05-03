@@ -25,7 +25,7 @@ http://localhost:8200/{service}/:id DELETE
     description: String
 }
 
-### CLient Body (POST, PUT Inventory)
+### Client Body (POST, PUT Inventory)
 {
     name: String,
     email: Number,
