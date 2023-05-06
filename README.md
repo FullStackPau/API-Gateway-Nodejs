@@ -1,4 +1,4 @@
-# Inventory Service Express Typescript
+# API GATEWAY Service Express Typescript
 ## Requirements
 NODE >= 18 \
 Docker
